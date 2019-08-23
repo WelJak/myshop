@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
+
 # Register your models here.
 
 def export_to_csv(modeladmin, request, queryset):

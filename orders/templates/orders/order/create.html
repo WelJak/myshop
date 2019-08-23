@@ -13,8 +13,14 @@
                     <span>{{ item.total_price }} PLN</span>
                 </li>
             {% endfor %}
+            {% if cart.coupon %}
+                <li>
+                    Kupon "{{ cart.coupon.code }}" ({{ cart.coupon.discount }} % rabatu)
+                    <span>- {{ cart.get_discount|floatformat:"2" }} PLN</span>
+                </li>
+            {% endif %}
         </ul>
-        <p>Wartość całkowita: {{ cart.get_total_price }} PLN</p>
+        <p>Wartość całkowita: {{ cart.get_total_price_after_discount|floatformat:"2" }} PLN</p>
     </div>
     <form action="." method="post" class="order-form">
         {{ form.as_p }}
